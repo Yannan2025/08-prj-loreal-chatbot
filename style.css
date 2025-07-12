@@ -1,13 +1,13 @@
-/* —— basic reset —— */
+/* —— Reset & Font —— */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* —— body + fonts —— */
 body {
-  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", Arial, sans-serif;
+  background-color: #ffffff;
   color: #333;
   display: flex;
   justify-content: center;
@@ -18,21 +18,34 @@ body {
   max-width: 900px;
 }
 
-/* header */
+/* —— Branding Header —— */
 .site-header {
+  background-color: #000;
+  color: #fff;
+  padding: 30px 20px;
   text-align: center;
-  padding-top: 50px;
+}
+
+.brand-logo {
+  height: 60px;
+  margin-bottom: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .site-title {
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-/* chat window */
+/* —— Chat Area —— */
 .chatbox {
   margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .chat-window {
@@ -42,29 +55,47 @@ body {
   font-size: 18px;
   line-height: 1.5;
   overflow-y: auto;
-  background: #fafafa;
-  white-space: pre-line;
+  background: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* messages */
-.msg {
-  margin-bottom: 14px;
-  line-height: 1.5;
+/* —— Bubble Styling —— */
+.user-message,
+.bot-message {
+  padding: 12px 18px;
+  border-radius: 15px;
+  max-width: 75%;
+  width: fit-content;
 }
 
-.msg.user {
+.user-message {
+  align-self: flex-end;
+  background-color: #eaeaea;
   color: #000;
+  text-align: right;
 }
 
-.msg.ai {
-  color: #666666;
+.bot-message {
+  align-self: flex-start;
+  background-color: #fce4ec;
+  color: #333;
 }
 
-/* input row */
+/* —— Display Last User Question —— */
+.user-question-display {
+  font-size: 16px;
+  color: #555;
+  font-style: italic;
+  margin-bottom: -10px;
+  margin-left: 4px;
+}
+
+/* —— Chat Input Form —— */
 .chat-form {
   display: flex;
   gap: 12px;
-  margin-top: 16px;
 }
 
 .chat-form input {
@@ -72,6 +103,7 @@ body {
   padding: 12px;
   border: 1px solid #ccc;
   font-size: 18px;
+  border-radius: 8px;
 }
 
 .chat-form input:focus {
@@ -92,6 +124,7 @@ body {
   justify-content: center;
   cursor: pointer;
   transition: background 0.3s;
+  border-radius: 8px;
 }
 
 .chat-form button .material-icons {
@@ -99,7 +132,7 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: #444;
 }
 
 .chat-form button:focus {
@@ -107,7 +140,7 @@ body {
   outline-offset: 2px;
 }
 
-/* visually hidden */
+/* —— Visually Hidden for Accessibility —— */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -120,7 +153,7 @@ body {
   border: 0;
 }
 
-/* footer */
+/* —— Footer —— */
 .site-footer {
   margin: 60px 0 40px;
   text-align: center;
@@ -139,5 +172,5 @@ body {
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: #666;
 }
