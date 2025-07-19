@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>L’Oréal Product Advisor</title>
-
+  
   <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet" />
@@ -13,35 +13,54 @@
 
 <body>
   <div class="page-wrapper">
-    <!-- 🖤 L’Oréal Branding Header -->
+    <!-- 🖤 Branding Header -->
     <header class="site-header">
       <img src="img/loreal-logo.png" alt="L’Oréal Logo" class="brand-logo" />
       <h1 class="site-title">L’Oréal Product Advisor</h1>
     </header>
 
-    <!-- 💬 Chat Interface -->
+    <!-- 🔎 Search & Product Grid -->
+    <section class="product-interaction">
+      <input type="search" id="productSearch" placeholder="Search products…" />
+      <div id="productGrid" class="product-grid">
+        <!-- Example Product Card -->
+        <div class="product-card" data-product-id="101">
+          <img src="img/product1.jpg" alt="Revitalift Serum" />
+          <div class="product-info">
+            <h3>Revitalift Serum</h3>
+            <button class="desc-toggle">More Info</button>
+            <p class="product-desc hidden">Targets fine lines and boosts hydration.</p>
+          </div>
+          <button class="select-btn">Select</button>
+        </div>
+        <!-- More cards dynamically rendered here -->
+      </div>
+    </section>
+
+    <!-- ✅ Selected Products & Routine Generator -->
+    <section id="selectedProducts">
+      <h2>Selected Products</h2>
+      <ul class="selected-list"></ul>
+      <button id="generateRoutineBtn">Generate Routine</button>
+    </section>
+
+    <!-- 💬 Routine Display & Chat Area -->
     <main>
       <section class="chatbox">
         <div id="chatWindow" class="chat-window">
-          <!-- Context-aware conversation messages appear here -->
+          <!-- Conversation history goes here -->
         </div>
 
-        <!-- 📌 Show Last User Question -->
-        <div id="lastQuestion" class="user-question-display"></div>
-
         <form id="chatForm" class="chat-form">
-          <label for="userInput" class="visually-hidden">Message</label>
           <input
             id="userInput"
-            name="userInput"
             type="text"
-            placeholder="Ask me about L’Oréal skincare, hair care, or beauty products…"
+            placeholder="Ask a follow-up or product question…"
             autocomplete="off"
             required
           />
-          <button type="submit" id="sendBtn">
+          <button type="submit">
             <span class="material-icons">send</span>
-            <span class="visually-hidden">Send</span>
           </button>
         </form>
       </section>
@@ -58,7 +77,7 @@
     </footer>
   </div>
 
-  <!-- 🔐 Cloudflare Worker (No secrets.js) -->
+  <!-- 🔐 Cloudflare Worker routing & behavior scripts -->
   <script src="script.js"></script>
 </body>
 </html>
