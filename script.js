@@ -91,38 +91,11 @@ function displayMessage(text, sender = "bot") {
 chatForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const userMessage = userInputField.value.trim();
-  if (!userMessage) return;
+  // When using Cloudflare, you'll need to POST a `messages` array in the body,
+  // and handle the response using: data.choices[0].message.content
 
-  displayMessage(userMessage, "user");
-  lastQuestionDisplay.textContent = `You asked: "${userMessage}"`;
-  userInputField.value = "";
-
-  const keywords = ["l'oréal", "makeup", "foundation", "skincare", "hair", "serum", "moisturizer"];
-  const isRelevant = keywords.some((word) => userMessage.toLowerCase().includes(word));
-
-  if (!isRelevant) {
-    displayMessage("I'm here to help with L’Oréal beauty and skincare only. Try asking about a product or routine!", "bot");
-    return;
-  }
-
-  chatHistory.push({ role: "user", content: userMessage });
-
-  try {
-    const response = await fetch(workerEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: chatHistory })
-    });
-
-    const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || "Sorry, I couldn't find a matching product answer.";
-    displayMessage(reply, "bot");
-    chatHistory.push({ role: "assistant", content: reply });
-  } catch (error) {
-    displayMessage("⚠️ There was an error connecting to the server. Please try again later.", "bot");
-    console.error(error);
-  }
+  // Show message
+  chatWindow.innerHTML = "Connect to the OpenAI API for a response!";
 });
 
 productSearch.addEventListener("input", () => {
