@@ -53,8 +53,19 @@ body {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+}
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product-card {
@@ -253,4 +264,50 @@ body {
 [dir="rtl"] .chatbox,
 [dir="rtl"] .site-footer nav {
   direction: rtl;
+}
+#showMoreBtn {
+  margin: 40px auto 20px;
+  padding: 12px 18px;
+  font-size: 16px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: block;
+}
+
+#showMoreBtn:hover {
+  background-color: #444;
+}
+
+/* Global RTL Mode */
+[dir="rtl"] body {
+  direction: rtl;
+}
+
+/* Product Grid RTL Flow */
+[dir="rtl"] .product-grid {
+  justify-items: end;
+}
+
+/* Selected Product Chips RTL */
+[dir="rtl"] .selected-list {
+  justify-content: flex-end;
+}
+
+/* Chat RTL: user on left, bot on right */
+[dir="rtl"] .user-message {
+  align-self: flex-start;
+  text-align: left;
+}
+
+[dir="rtl"] .bot-message {
+  align-self: flex-end;
+  text-align: right;
+}
+
+[dir="rtl"] .chat-form {
+  flex-direction: row-reverse;
 }

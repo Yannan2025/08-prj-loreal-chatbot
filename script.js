@@ -157,3 +157,94 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   updateSelectedList();
 });
+const extraProductGrid = document.getElementById("extraProductGrid");
+const showMoreBtn = document.getElementById("showMoreBtn");
+
+const extraProducts = [
+  {
+    id: "107",
+    name: "Voluminous Mascara",
+    image: "img/product7.jpg",
+    description: "Builds volume without clumps for bold lashes."
+  },
+  {
+    id: "108",
+    name: "Men Expert Cleanser",
+    image: "img/product8.jpg",
+    description: "Purifies skin and reduces excess oil for men’s skincare."
+  },
+  {
+    id: "109",
+    name: "Color Riche Lipstick",
+    image: "img/product9.jpg",
+    description: "Luxurious, vibrant color with satin finish."
+  }
+];
+
+showMoreBtn.addEventListener("click", () => {
+  extraProducts.forEach((product) => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.setAttribute("data-product-id", product.id);
+    card.innerHTML = `
+      <img src="${product.image}" alt="${product.name}" />
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">${product.description}</p>
+      </div>
+      <button class="select-btn">Select</button>
+    `;
+    
+    // ✨ Behavior for selection and description toggle
+    card.querySelector(".select-btn").addEventListener("click", () => {
+      card.classList.toggle("selected");
+      const productName = product.name;
+      if (selectedProducts.includes(productName)) {
+        selectedProducts = selectedProducts.filter(p => p !== productName);
+      } else {
+        selectedProducts.push(productName);
+      }
+      updateSelectedList();
+    });
+
+    card.querySelector(".desc-toggle").addEventListener("click", () => {
+      card.querySelector(".product-desc").classList.toggle("hidden");
+    });
+
+    extraProductGrid.appendChild(card);
+  });
+
+  showMoreBtn.disabled = true;
+  showMoreBtn.textContent = "Loaded More Products";
+});
+/* Global RTL Mode */
+[dir="rtl"] body {
+  direction: rtl;
+}
+
+/* Product Grid RTL Flow */
+[dir="rtl"] .product-grid {
+  justify-items: end;
+}
+
+/* Selected Product Chips RTL */
+[dir="rtl"] .selected-list {
+  justify-content: flex-end;
+}
+
+/* Chat RTL: user on left, bot on right */
+[dir="rtl"] .user-message {
+  align-self: flex-start;
+  text-align: left;
+}
+
+[dir="rtl"] .bot-message {
+  align-self: flex-end;
+  text-align: right;
+}
+
+[dir="rtl"] .chat-form {
+  flex-direction: row-reverse;
+}
+

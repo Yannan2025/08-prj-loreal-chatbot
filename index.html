@@ -19,23 +19,85 @@
       <h1 class="site-title">L’Oréal Product Advisor</h1>
     </header>
 
-    <!-- 🔎 Search & Product Grid -->
-    <section class="product-interaction">
-      <input type="search" id="productSearch" placeholder="Search products…" />
-      <div id="productGrid" class="product-grid">
-        <!-- Example Product Card -->
-        <div class="product-card" data-product-id="101">
-          <img src="img/product1.jpg" alt="Revitalift Serum" />
-          <div class="product-info">
-            <h3>Revitalift Serum</h3>
-            <button class="desc-toggle">More Info</button>
-            <p class="product-desc hidden">Targets fine lines and boosts hydration.</p>
-          </div>
-          <button class="select-btn">Select</button>
-        </div>
-        <!-- More cards dynamically rendered here -->
+<!-- 🔎 Search & Product Grid -->
+<section class="product-interaction">
+  <input type="search" id="productSearch" placeholder="Search products…" />
+
+  <div id="productGrid" class="product-grid">
+    <!-- ✅ Product 1 -->
+    <div class="product-card" data-product-id="101">
+      <img src="img/product1.jpg" alt="Revitalift Serum" />
+      <div class="product-info">
+        <h3>Revitalift Serum</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">Targets fine lines and boosts hydration.</p>
       </div>
-    </section>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <!-- ✅ Product 2 -->
+    <div class="product-card" data-product-id="102">
+      <img src="img/product2.jpg" alt="Hydra Genius Moisturizer" />
+      <div class="product-info">
+        <h3>Hydra Genius Moisturizer</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">Hydrates and smooths skin with aloe water.</p>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <!-- ✅ Product 3 -->
+    <div class="product-card" data-product-id="103">
+      <img src="img/product3.jpg" alt="Infallible Foundation" />
+      <div class="product-info">
+        <h3>Infallible Foundation</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">Long-wear coverage with breathable matte finish.</p>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <!-- ✅ Product 4 -->
+    <div class="product-card" data-product-id="104">
+      <img src="img/product4.jpg" alt="Elvive Repair Shampoo" />
+      <div class="product-info">
+        <h3>Elvive Repair Shampoo</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">Strengthens damaged hair and restores shine.</p>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <!-- ✅ Product 5 -->
+    <div class="product-card" data-product-id="105">
+      <img src="img/product5.jpg" alt="True Match Concealer" />
+      <div class="product-info">
+        <h3>True Match Concealer</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">Lightweight coverage that blends seamlessly with skin tone.</p>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+
+    <!-- ✅ Product 6 -->
+    <div class="product-card" data-product-id="106">
+      <img src="img/product6.jpg" alt="Dream Lengths Conditioner" />
+      <div class="product-info">
+        <h3>Dream Lengths Conditioner</h3>
+        <button class="desc-toggle">More Info</button>
+        <p class="product-desc hidden">Nourishes long hair and reduces split ends for a smooth finish.</p>
+      </div>
+      <button class="select-btn">Select</button>
+    </div>
+  </div>
+
+  <!-- 🔄 Show More Products Section -->
+  <section id="loadMoreSection">
+    <button id="showMoreBtn">Show More Products</button>
+    <div id="extraProductGrid" class="product-grid"></div>
+  </section>
+</section>
+
 
     <!-- ✅ Selected Products & Routine Generator -->
     <section id="selectedProducts">
